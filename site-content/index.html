@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../CSS/Задание 1.css">
+    <title></title>
+  </head>
+  <body>
+    <div id="body">
+      <!-- 0 -->
+      <div id="taskDecision">
+        <div id="task">
+          Задание. создать кнопку для вызова метода promt() и блок для вывода имени пользователя.<br>
+          Код JavaScript:<br><br>
+          <code>
+            document.querySelector("button").onclick = function()<br>
+            {<br>
+              while(!(name = prompt('Идентифицируйтесь:')))<br>
+                alert('Поле не может быть пустым!');<br>
+              alert('Привет, ' + name)<br>
+              document.getElementById("name").innerHTML = name;<br>
+            }<br><br>
+          </code>
+          В этом коде при нажатии на кнопку вызываем метод promt() и делаем проверку на то, что поле не пустое.
+          Последняя строка возвращает имя пользователя на страницу сайта.
+        </div>
+        <div id="decision">
+          <div id="realization">
+            <div id="button0"><button id="button">Проверить</button></div>
+            <div id="name"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 1 -->
+      <div id="taskDecision">
+        <div id="task">
+          Теперь давайте создадим два поля для ввода, в которые пользователь введет основание и высоту треугольника.
+          При нажатии на кнопку наш скрипт посчитает и вернет площадь треугольника на сайт.
+          <br>
+          Код JavaScript:
+          <br><br>
+          document.querySelector("#buttonTriangle").onclick = function()<br>
+          {<br>
+            let footing = document.getElementById("footing").value;<br>
+            let height = document.getElementById("height").value;<br>
+            if (footing > 0 && height > 0)<br>
+              document.getElementById("square").innerHTML = 0.5 * footing * height;<br>
+          }<br><br>
+          Начало кода аналогично примеру 1. Мы вызвали функцию при нажатии на кнопку, затем получаем значения из полей ввода по их id
+          Если величины треугольника больше нуля, то высчитывает площадь треугольника и возвращаем пользователю результат.
+        </div>
+        <div id="decision1">
+          <div id="realizationForTriangle">
+            <div id="field">
+              <!-- <label>Основание треугольника</label> -->
+              <input id="footing" type="number" placeholder="Основание треугольника" step="any" min="0.1">
+            </div>
+            <div id="field">
+              <!-- <label>Высота трегольника</label> -->
+              <input id="height" type="number" placeholder="Высота трегольника" step="any" min="0.1">
+            </div>
+            <div><button id="buttonTriangle">Высчитать площадь</button></div>
+            <div id="square"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2 -->
+      <div id="taskDecision">
+        <div id="task">
+          Давайте попросим пользователя ввести две строки и выведем true, если длины строк равны. В противном случае вернем false.
+          Код JavaScript:
+          <br><br>
+          document.querySelector("#buttonStr").onclick = function()<br>
+          {<br>
+            let str1 = document.getElementById("str1").value;<br>
+            let str2 = document.getElementById("str2").value;<br>
+            if (str1.length === str2.length)<br>
+              document.getElementById("resStr").innerHTML = true;<br>
+            else<br>
+              document.getElementById("resStr").innerHTML = false;<br>
+          }<br><br>
+          Данный пример идентичен примеру 2, за исключением стравнения.<br>
+          Важно знать что знак === странивает в JS переменные в том числе и на соответствие типов даных.<br>
+          Знак == сравнивает переменные без типов.
+        </div>
+        <div id="decision2">
+          <div>
+            <!-- <label>Первая строка</label> -->
+            <input id="str1" type="text" placeholder="Первая строка">
+          </div>
+          <div>
+            <!-- <label>Вторая строка</label> -->
+            <input id="str2" type="text" placeholder="Вторая строка">
+          </div>
+          <button id="buttonStr">Сравнить</button>
+          <div id="resStr"></div>
+        </div>
+      </div>
+
+      <!-- 3 -->
+      <div id="taskDecision">
+        <div id="task">
+          Задание. Попросите пользователя ввести массив из 5 элементов. Выдайте ему минимальное, максимальное значение массива.<br>
+          Код JavaScript:
+          <br><br>
+          document.querySelector("#buttonArr").onclick = function()<br>
+          {<br>
+            let strArr = document.getElementById("arr").value;<br>
+            let arr = strArr.split(" ");<br>
+            if (arr.length === 5) {<br>
+              document.getElementById("resMax").innerHTML = Math.max.apply(null, arr);<br>
+              document.getElementById("resMin").innerHTML = Math.min.apply(null, arr);<br>
+            }<br>
+            else if (arr.length > 5) {<br>
+              alert("Введен слишком длинный массив. Ожидался массив длины в 5 элементов");<br>
+            }<br>
+            else {<br>
+              alert("Введен слишком короткий массив. Ожидался массив длины в 5 элементов");<br>
+            }<br>
+          }<br><br>
+          Давайте разберем пример. При нажатии на кнопку мы получаем значение из поля input.<br>
+          Затем с помощью метода split() мы делим строку. Далее у нас 2 варианта развития.<br>
+          Если длина массива равна 5, то находим максимум и минимум в массиве с помощью функций Math.max.apply() и Math.min.apply().<br>
+          Иначе мы возвращаем сообщение, что длина массива не соответствует требованию.
+        </div>
+        <div id="decision3">
+          <!-- <label>Введите 5 чисел</label> -->
+          <input id="arr" type="text" placeholder="Введите 5 чисел">
+          <button id="buttonArr">Сравнить</button>
+          <div id="resMax"></div>
+          <div id="resMin"></div>
+        </div>
+      </div>
+
+      <!-- 4 -->
+      <div id="taskDecision">
+        <div id="task">
+          Перейдем к созданию таймера. Главные требования:<br>
+          1. Таймер имеет кнопку начала.<br>
+          2. Таймер имеет кнопку остановки.<br>
+          3. Таймер имеет поле, показывающее сколько времени прошло с начала.<br>
+          Код JavaScript:<br><br>
+          let flag = false;<br>
+          let timerInput = document.getElementById("time");<br>
+          let buttonRun = document.getElementById("buttonTimer");<br>
+          let buttonStop = document.getElementById("buttonStop");<br>
+          let timerShow = document.getElementById("timer");<br>
+          let timerRemained = document.getElementById("passed");<br>
+          buttonRun.addEventListener('click', function() {<br>
+            if (flag === false)<br>
+              timeMinut = parseInt(timerInput.value) * 60;<br>
+          })<br>
+          document.getElementById('buttonStop').onclick = function() {<br>
+             flag = true;<br>
+          }<br>
+          document.getElementById('buttonTimer').onclick = function() {<br>
+             flag = false;<br>
+          }<br>
+          timer = setInterval(function () {<br>
+            if (flag === false) {<br>
+              let seconds = timeMinut%60;<br>
+              let minutes = timeMinut/60;<br>
+              let proSec = 60 - seconds;<br>
+              let proMin = parseInt(timerInput.value) - Math.trunc(minutes) - 1;<br>
+              if (timeMinut <= 0) alert("Время закончилось");<br>
+              else<br>
+              {<br>
+                proSec = proSec === 60 ? 0 : proSec;<br>
+                proMin = proMin === -1 ? 0 : proMin;<br>
+                let strRemained = 'Прошло: ' + proMin + ':' + proSec;<br>
+                let strTimer = 'Осталось: ' + Math.trunc(minutes) + ':' + seconds;<br>
+                timerShow.innerHTML = strTimer;<br>
+                timerRemained.innerHTML = strRemained;<br>
+              }<br>
+              --timeMinut;<br>
+            }<br>
+          }, 1000);<br><br>
+          Давайте разберем пример. Переменная flag отвечает за остановку/запуск таймера.<br>
+          timerInput - считывает значение из поля input<br>
+          buttonRun - кнопка запуска таймера<br>
+          buttonStop - кпонка остановка таймера<br>
+          timerShow - поле для отображения оставшегося времени<br>
+          timerRemained - поле для отображения прошедшего времени<br>
+          При нажатии кнопки buttonRun, получаем значение из поля timerInput<br>
+          Если нажали кнопку buttonStop, то flag = true.<br>
+          Переменная timer хранит результат функции, которая выполняется каждую секунду (setInterval(function () {}, 1000).<br>
+          Сама функция расчитывает время таймера.<br>
+          Создаем 4 переменные: 2 отвечают за минут и секунды, которые прошли с момента запуска таймера,<br>
+          2 другие - за время которое осталось до окончания работы таймера.<br>
+          Производим расчеты и вывдим результат на экран.
+        </div>
+        <div id="decision4">
+          <!-- <label>Время таймера</label> -->
+          <input type="text" placeholder="Время таймера" id="time">
+          <button id="buttonTimer">Запустить</button>
+          <button id="buttonStop">Остановить</button>
+          <div id="passed">Прошло: </div>
+          <div id="timer">Осталось: </div>
+        </div>
+      </div>
+
+      <!-- 5 -->
+      <div id="taskDecision">
+        <div id="task">
+          Создание формы опросника оставляем для вас.
+          Мы же приступим к написанию логики опросника.<br>
+          Код JavaScript:<br><br>
+          let ArrAnswers= ["q1a1", "q2a3", "q3a4", "q4a2", "q5a2", "q6a3", "q7a1", "q8a1", "q9a3", "q10a3"];<br>
+          let count = 0;<br>
+          let flagTest = true;<br>
+          document.querySelector('#buttonTest').onclick = function()<br>
+          {<br>
+             if (document.querySelectorAll('input:checked').length === 11 && flagTest === true)<br>
+             {<br>
+               flagTest = false;<br>
+               for(let i = 0; i < 10; i++)<br>
+               {<br>
+                 if(document.querySelector(`input[id="${ArrAnswers[i]}"]:checked`))<br>
+                 {<br>
+                   count += 1;<br>
+                 }<br>
+               }<br>
+               document.getElementById("resTest").innerHTML = 'Ваш результат: ' + count;<br>
+             }<br>
+          }<br><br>
+          У нас имеется массив, содержащий идентификаторы полей с правильными ответами.<br>
+          Также имеется счетчик, который в конце показывает результат пользоавателю.<br>
+          При нажатии на кнопку проверки мы проверяем, что было нажато 10 inputов.<br>
+          Далее проверяем, что правильный input был нажат.<br>
+          Таким образом, считаем результат пользователя и выводим на экран.
+        </div>
+        <div  id="decisionForm">
+          <form style="margin: 20px 0px 20px 0px;">
+            <div>
+              Есть ли различия между проверками:<br>
+              if( x <= 100 ) {...}<br>
+              // и<br>
+              if( !(x > 100) ) {...}
+            </div>
+            <input id="q1a1" type="radio" name = "first">
+            <label>Да, существует значение x, для которого они работают по-разному.</label><br>
+
+            <input id="q1a2" type="radio" name = "first">
+            <label>Нет, они полностью взаимозаменяемы.</label><br>
+
+            <input id="q1a3" type="radio" name = "first">
+            <label>Зависит от браузера.</label>
+          </form>
+
+          <form  style="margin: 20px 0px 20px 0px;">
+            <div>
+              Есть ли различия между проверками:<br>
+              if( x <= 100 ) {...}<br>
+              // и<br>
+              if( !(x > 100) ) {...}
+            </div>
+            <input id="q1a1" type="radio" name = "first">
+            <label>Да, существует значение x, для которого они работают по-разному.</label><br>
+
+            <input id="q1a2" type="radio" name = "first">
+            <label>Нет, они полностью взаимозаменяемы.</label><br>
+
+            <input id="q1a3" type="radio" name = "first">
+            <label>Зависит от браузера.</label>
+          </form>
+
+          <form  style="margin: 20px 0px 20px 0px;">
+            <div>
+              Чему равно a + b + c?<br>
+              let a = 1;<br>
+              let b = { toString() {return '1'} };<br>
+              let c = 1;
+            </div>
+            <input id="q2a1" type="radio" name = "first">
+            <label>11[object Object]</label><br>
+
+            <input id="q2a2" type="radio" name = "first">
+            <label>2[object Object]</label><br>
+
+            <input id="q2a3" type="radio" name = "first">
+            <label>111</label><br>
+
+            <input id="q2a4" type="radio" name = "first">
+            <label>3</label>
+          </form>
+
+          <form  style="margin: 20px 0px 20px 0px;">
+            <div>
+              Что выведет этот код?<br>
+              for(var i=0; i < 10; i++) {<br>
+                setTimeout(function() {<br>
+                  alert(i);<br>
+                }, 100);<br>
+              }<br>
+            </div>
+            <input id="q3a1" type="radio" name = "first">
+            <label>Числа от 0 до 9.</label><br>
+
+            <input id="q3a2" type="radio" name = "first">
+            <label>Числа от 0 до 10.</label><br>
+
+            <input id="q3a3" type="radio" name = "first">
+            <label>10 раз число 0.</label><br>
+
+            <input id="q3a4" type="radio" name = "first">
+            <label>10 раз число 10.</label><br>
+
+            <input id="q3a5" type="radio" name = "first">
+            <label>Ошибка: переменная не определена.</label>
+          </form>
+
+          <form  style="margin: 20px 0px 20px 0px;">
+            <div>Переменные apple и Apple (с большой буквы) – это одна и та же или разные?</div>
+            <input id="q4a1" type="radio" name = "first">
+            <label>Одна и та же.</label><br>
+
+            <input id="q4a2" type="radio" name = "first">
+            <label>Разные.</label><br>
+
+            <input id="q4a3" type="radio" name = "first">
+            <label>С большой буквы переменные называть нельзя.</label><br>
+
+            <input id="q4a4" type="radio" name = "first">
+            <label>Слово «apple» является зарезервированным, нельзя использовать.</label>
+          </form>
+
+          <form  style="margin: 20px 0px 20px 0px;">
+            <div>Язык JavaScript является подвидом языка Java – верно?</div>
+            <input id="q5a1" type="radio" name = "first">
+            <label>Да.</label><br>
+
+            <input id="q5a2" type="radio" name = "first">
+            <label>Нет.</label><br>
+
+            <input id="q5a3" type="radio" name = "first">
+            <label>Наоборот, Java – подвид JavaScript.</label>
+          </form>
+
+          <form  style="margin: 20px 0px 20px 0px;">
+            <div>Что получится, если сложить true + false?</div>
+            <input id="q6a1" type="radio" name = "first">
+            <label>"truefalse"</label><br>
+
+            <input id="q6a2" type="radio" name = "first">
+            <label>0</label><br>
+
+            <input id="q6a3" type="radio" name = "first">
+            <label>1</label><br>
+
+            <input id="q6a4" type="radio" name = "first">
+            <label>NaN</label>
+          </form>
+
+          <form  style="margin: 20px 0px 20px 0px;">
+            <div>
+              Что выведет этот код?<br>
+              if (function f(){}) {<br>
+                alert(typeof f);<br>
+              }
+            </div>
+            <input id="q7a1" type="radio" name = "first">
+            <label>undefined</label><br>
+
+            <input id="q7a2" type="radio" name = "first">
+            <label>function</label><br>
+
+            <input id="q7a3" type="radio" name = "first">
+            <label>null</label><br>
+
+            <input id="q7a4" type="radio" name = "first">
+            <label>object</label><br>
+
+            <input id="q7a5" type="radio" name = "first">
+            <label>В коде ошибка.</label>
+          </form>
+
+          <form  style="margin: 20px 0px 20px 0px;">
+            <div>Что такое ECMAScript?</div>
+            <input id="q8a1" type="radio" name = "first">
+            <label>Новый язык программирования.</label><br>
+
+            <input id="q8a2" type="radio" name = "first">
+            <label>Переработанная реализация Javascript.</label><br>
+
+            <input id="q8a3" type="radio" name = "first">
+            <label>Спецификация языка Javascript.</label>
+          </form>
+
+          <form  style="margin: 20px 0px 20px 0px;">
+            <div>
+              Чему равно arr.length?<br>
+              function MyArray() { }<br>
+              MyArray.prototype = [];<br><br>
+
+              let arr = new MyArray();<br>
+              arr.push(1, 2, 3);<br>
+              alert(arr.length);<br>
+            </div>
+            <input id="q9a1" type="radio" name = "first">
+            <label>0</label><br>
+
+            <input id="q9a2" type="radio" name = "first">
+            <label>undefined</label><br>
+
+            <input id="q9a3" type="radio" name = "first">
+            <label>3</label><br>
+
+            <input id="q9a4" type="radio" name = "first">
+            <label>В этом коде допущена ошибка.</label>
+          </form>
+
+          <div id="resTestButton">
+            <div><button id="buttonTest">Проверить</button></div>
+            <div id="resTest"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 6 -->
+      <div id="taskDecision">
+        <div id="task">
+          Давайте создадим кнопку, при нажатии на которую появляется заставка с текущей датой на весь экран.
+          При нажатии на любую область заставки она должна скрыться.
+          Код JavaScript:<br><br>
+          document.querySelector("#screensaver").onclick = function(){<br>
+            let data = new Date();<br>
+            document.getElementById("day").innerHTML = data.getDate();<br>
+            document.getElementById('dm').style.display='block';<br>
+            if (data.getMonth() + 1 < 10) {<br>
+              document.getElementById("month").innerHTML = `0${data.getMonth() + 1}`;<br>
+            }<br>
+            else {<br>
+              document.getElementById("month").innerHTML = data.getMonth() + 1;<br>
+            }<br>
+            document.getElementById('my').style.display='block';<br>
+            document.getElementById("year").innerHTML = data.getFullYear();<br><br>
+
+            document.getElementById('image').style.display='block';<br>
+            document.getElementById('screensaver').style.display='none';<br><br>
+
+          }<br><br>
+
+          function clouse(){<br>
+            document.getElementById('image').style.display='none';<br>
+            document.getElementById('data').style.display='none';<br>
+          }<br>
+          <br><br>
+          При нажатии на кнопку мы получаем текущую дату с помощью new Date().<br>
+          Затем отображаем дату, месяц и год в соответствующие div блоки на экране.<br>
+          Обратите внимание, что нумерация месяцев начинается с 0!<br>
+          Также скрываем кнопку заставки, а отображаем нашу картинку.<br>
+          Для закрытия имеется функция clouse().<br>
+          Она скрывает дату и картинку при нажатии на любую область экрана.
+        </div>
+        <div id="decision">
+          <div><button id="screensaver">Заставка</button></div>
+          <div style="position: absolute; display: flex; justify-content: center; align-items:center;">
+            <img id="image" src="../pictures/5.jpg" style="width: 100%; display:none;" onclick="clouse()">
+            <div id="data" style="position: absolute; top: 50%; display: flex; justify-content: center; align-items:center;">
+              <div id="day" style="font-style: initial;"></div>
+              <div id="dm" style="display:none; font-style: initial;">.</div>
+              <div id="month"  style="font-style: initial;"></div>
+              <div id="my" style="display:none; font-style: initial;">.</div>
+              <div id="year"  style="font-style: initial;"></div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+
+
+    <script>
+    // 0
+    document.querySelector("button").onclick = function()
+    {
+      while(!(name = prompt('Идентифицируйтесь:')))
+        alert('Поле не может быть пустым!');
+      alert('Привет, ' + name)
+      localStorage.setItem("myKey",JSON.stringify(name));
+      document.getElementById("name").innerHTML = name;
+    }
+    name = JSON.parse(localStorage.getItem("myKey"));
+    document.getElementById("name").innerHTML = "Ваше имя: " + name;
+
+    // 1
+    document.querySelector("#buttonTriangle").onclick = function()
+    {
+      let footing = document.getElementById("footing").value;
+      let height = document.getElementById("height").value;
+      if (footing > 0 && height > 0)
+        document.getElementById("square").innerHTML = 0.5 * footing * height;
+    }
+
+    // 2
+    document.querySelector("#buttonStr").onclick = function()
+    {
+      let str1 = document.getElementById("str1").value;
+      let str2 = document.getElementById("str2").value;
+      if (str1.length === str2.length)
+        document.getElementById("resStr").innerHTML = true;
+      else
+        document.getElementById("resStr").innerHTML = false;
+    }
+
+    // 3
+    document.querySelector("#buttonArr").onclick = function()
+    {
+      let strArr = document.getElementById("arr").value;
+      let arr = strArr.split(" ");
+      if (arr.length === 5) {
+        document.getElementById("resMax").innerHTML = "Max: " + Math.max.apply(null, arr);
+        document.getElementById("resMin").innerHTML = "Min: " + Math.min.apply(null, arr);
+      }
+      else if (arr.length > 5) {
+        alert("Введен слишком длинный массив. Ожидался массив длины в 5 элементов");
+      }
+      else {
+        alert("Введен слишком короткий массив. Ожидался массив длины в 5 элементов");
+      }
+    }
+
+    // 4
+    let flag = false;
+    let timerInput = document.getElementById("time");
+    let buttonRun = document.getElementById("buttonTimer");
+    let buttonStop = document.getElementById("buttonStop");
+    let timerShow = document.getElementById("timer");
+    let timerRemained = document.getElementById("passed");
+    buttonRun.addEventListener('click', function() {
+      if (flag === false)
+        timeMinut = parseInt(timerInput.value) * 60;
+
+    })
+    document.getElementById('buttonStop').onclick = function() {
+       flag = true;
+    }
+    document.getElementById('buttonTimer').onclick = function() {
+       flag = false;
+    }
+    timer = setInterval(function () {
+      if (flag === false) {
+        let seconds = timeMinut%60;
+        let minutes = timeMinut/60;
+        let proSec = 60 - seconds;
+        let proMin = parseInt(timerInput.value) - Math.trunc(minutes) - 1;
+        if (timeMinut <= 0) alert("Время закончилось");
+        else
+        {
+          proSec = proSec === 60 ? 0 : proSec;
+          proMin = proMin === -1 ? 0 : proMin;
+          let strRemained = 'Прошло: ' + proMin + ':' + proSec;
+          let strTimer = 'Осталось: ' + Math.trunc(minutes) + ':' + seconds;
+          timerShow.innerHTML = strTimer;
+          timerRemained.innerHTML = strRemained;
+        }
+        --timeMinut;
+      }
+    }, 1000);
+
+    // 5
+    let ArrAnswers= ["q1a1", "q2a3", "q3a4", "q4a2", "q5a2", "q6a3", "q7a1", "q8a1", "q9a3", "q10a3"];
+    let count = 0;
+    let flagTest = true;
+    console.log(document.querySelectorAll('input:checked').length);
+    document.querySelector('#buttonTest').onclick = function()
+    {
+       if (document.querySelectorAll('input:checked').length === 10 && flagTest === true)
+       {
+         flagTest = false;
+         for(let i = 0; i < 10; i++)
+         {
+           if(document.querySelector(`input[id="${ArrAnswers[i]}"]:checked`))
+           {
+             count += 1;
+           }
+         }
+         document.getElementById("resTest").innerHTML = 'Ваш результат: ' + count;
+       }
+    }
+
+    // 6
+    document.querySelector("#screensaver").onclick = function(){
+      let data = new Date();
+      document.getElementById("day").innerHTML = data.getDate();
+      document.getElementById('dm').style.display='block';
+      if (data.getMonth() + 1 < 10) {
+        document.getElementById("month").innerHTML = `0${data.getMonth() + 1}`;
+      }
+      else {
+        document.getElementById("month").innerHTML = data.getMonth() + 1;
+      }
+      document.getElementById('my').style.display='block';
+      document.getElementById("year").innerHTML = data.getFullYear();
+
+      document.getElementById('image').style.display='block';
+      document.getElementById('screensaver').style.display='none';
+
+    }
+
+    function clouse(){
+      document.getElementById('image').style.display='none';
+      document.getElementById('data').style.display='none';
+      document.getElementById('screensaver').style.display='block';
+    }
+    </script>
+  </body>
+</html>
